@@ -1,0 +1,16 @@
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\BankAccountManagement.Services.dll
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\BankAccountManagement.Services.pdb
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\obj\Debug\BankAccountManagement.Services.csproj.AssemblyReference.cache
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\obj\Debug\BankAccountManagement.Services.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\obj\Debug\BankAccountManagement.Services.dll
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\obj\Debug\BankAccountManagement.Services.pdb
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\BankAccountManagement.Services.dll.config
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\EntityFramework.dll
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\EntityFramework.xml
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Services\obj\Debug\BankAccountManagement.Services.csproj.CopyComplete
