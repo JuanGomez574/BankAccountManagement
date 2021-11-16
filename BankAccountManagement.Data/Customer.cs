@@ -16,7 +16,7 @@ namespace BankAccountManagement.Data
         [Required]
         public string LastName { get; set; }
         [Required]
-        public string FullName { get; set; }
+        public string FullName {get{return FirstName + LastName;}}
         public string Email { get; set; }
         public int? PhoneNumber { get; set; }
         [Required]

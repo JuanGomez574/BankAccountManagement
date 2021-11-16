@@ -16,7 +16,6 @@ namespace BankAccountManagement.Data
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
         [Required]
-        [Display(Name = "Date Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Required]
         public decimal SavingsBalance { get; set; }

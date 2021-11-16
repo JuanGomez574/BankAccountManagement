@@ -54,7 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerCreate.cs" />
+    <Compile Include="CustomerDetail.cs" />
+    <Compile Include="CustomerEdit.cs" />
+    <Compile Include="CustomerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SavingsAccountCreate.cs" />
+    <Compile Include="SavingsAccountDetail.cs" />
+    <Compile Include="SavingsAccountEdit.cs" />
+    <Compile Include="SavingsAccountListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
