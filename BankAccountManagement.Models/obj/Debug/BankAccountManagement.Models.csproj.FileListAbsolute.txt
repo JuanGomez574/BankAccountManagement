@@ -14,3 +14,6 @@ C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Mode
 C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Models\obj\Debug\BankAccountManagement.Models.csproj.CopyComplete
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Models\bin\Debug\BankAccountManagement.Data.dll
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Models\bin\Debug\BankAccountManagement.Data.pdb
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Models\bin\Debug\BankAccountManagement.Data.dll.config

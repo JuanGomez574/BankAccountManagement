@@ -63,10 +63,20 @@
     <Compile Include="SavingsAccountDetail.cs" />
     <Compile Include="SavingsAccountEdit.cs" />
     <Compile Include="SavingsAccountListItem.cs" />
+    <Compile Include="TransactionCreate.cs" />
+    <Compile Include="TransactionDetail.cs" />
+    <Compile Include="TransactionEdit.cs" />
+    <Compile Include="TransactionListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BankAccountManagement.Data\BankAccountManagement.Data.csproj">
+      <Project>{AA615E36-AC44-42CC-BD52-D80D4E0A51F9}</Project>
+      <Name>BankAccountManagement.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
