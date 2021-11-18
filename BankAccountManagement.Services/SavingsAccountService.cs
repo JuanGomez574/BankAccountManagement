@@ -55,20 +55,42 @@ namespace BankAccountManagement.Services
                     .SavingsAccounts
                     .Single(e => e.SavingsAccountId == id);
 
-
-
                 return
                     new SavingsAccountDetail
                     {
                         SavingsAccountId = entity.SavingsAccountId,
                         SavingsBalance = entity.SavingsBalance
                     };
-
-
             };
 
         }
-        //Helper to get list of Customers
+        public bool UpdateSavingsAccount(SavingsAccountEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .SavingsAccounts
+                        .Single(e => e.SavingsAccountId == model.SavingsAccountId);
+
+                entity.SavingsBalance = model.SavingsBalance;;
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteSavingsAccount(int savingsAccountId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .SavingsAccounts
+                        .Single(e => e.SavingsAccountId == savingsAccountId);
+
+                ctx.SavingsAccounts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
         public List<SelectListItem> GetCustomers()
         {
             List<SelectListItem> customers = new List<SelectListItem>();

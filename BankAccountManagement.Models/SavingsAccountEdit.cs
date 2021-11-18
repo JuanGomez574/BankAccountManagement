@@ -8,6 +8,7 @@ namespace BankAccountManagement.Models
 {
     public class SavingsAccountEdit
     {
+        public int SavingsAccountId { get; set; }
         public decimal SavingsBalance { get; set; }
     }
 }

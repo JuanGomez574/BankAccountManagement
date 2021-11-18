@@ -101,21 +101,5 @@ namespace BankAccountManagement.Services
             };
 
         }
-        ////Helper to get list of SavingsAccounts
-        //public List<SelectListItem> GetSavingsAccounts()
-        //{
-        //    List<SelectListItem> savingsAccounts = new List<SelectListItem>();
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        savingsAccounts = ctx.SavingsAccounts.Select(
-        //            c =>
-        //            new SelectListItem
-        //            {
-        //                Value = c.SavingsAccountId.ToString(),
-        //                Text = c.SavingsAccountId.ToString(),
-        //            }).ToList();
-        //        return savingsAccounts;
-        //    }
-        //}
     }
 }
