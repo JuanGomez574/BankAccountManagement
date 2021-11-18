@@ -88,27 +88,41 @@ namespace BankAccountManagement.Services
            
 
 
-        public bool UpdateCustomer(CustomerEdit model, int id)
+        public bool UpdateCustomer(CustomerEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
-                    ctx.Customers
-                    .Single(e => e.CustomerId == id);
+                    ctx
+                        .Customers
+                        .Single(e => e.CustomerId == model.CustomerId);
 
                 entity.FirstName = model.FirstName;
-                            entity.LastName = model.LastName;
-                            entity.Address = model.Address;
-                            entity.DateOfBirth = model.DateOfBirth;
-                            entity.Email = model.Email;
-                           entity.PhoneNumber = model.PhoneNumber;
-                           entity.SocialSecurityNumber = model.SocialSecurityNumber;
+                entity.LastName = model.LastName;
+                entity.Address = model.Address;
+                entity.DateOfBirth = model.DateOfBirth;
+                entity.Email = model.Email;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.SocialSecurityNumber = model.SocialSecurityNumber;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        
+        public bool DeleteCustomer(int customerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Customers
+                        .Single(e => e.CustomerId == customerId);
+
+                ctx.Customers.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 
