@@ -9,6 +9,7 @@ namespace BankAccountManagement.Models
 {
     public class TransactionEdit
     {
+        public int TransactionId { get; set; }
         public decimal AmountOfTransaction { get; set; }
         public TransactionType TypeOfTransaction { get; set; }
         public string TransactionDescription { get; set; }

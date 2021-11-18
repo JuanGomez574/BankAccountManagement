@@ -101,5 +101,37 @@ namespace BankAccountManagement.Services
             };
 
         }
+        public bool UpdateTransaction(TransactionEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Transactions
+                        .Single(e => e.TransactionId == model.TransactionId);
+
+                entity.AmountOfTransaction = model.AmountOfTransaction;
+                entity.TypeOfTransaction = model.TypeOfTransaction;
+                entity.TransactionDescription = model.TransactionDescription;
+                entity.SavingsAccountId = model.SavingsAccountId;
+                entity.TransactionId = model.TransactionId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteTransaction(int transactionId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Transactions
+                        .Single(e => e.TransactionId == transactionId );
+
+                ctx.Transactions.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
