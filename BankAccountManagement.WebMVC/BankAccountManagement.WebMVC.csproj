@@ -248,6 +248,16 @@
     <Content Include="Views\Transaction\Create.cshtml" />
     <Content Include="Views\CheckingAccount\Index.cshtml" />
     <Content Include="Views\CheckingAccount\Create.cshtml" />
+    <Content Include="Views\CheckingAccount\Edit.cshtml" />
+    <Content Include="Views\CheckingAccount\Details.cshtml" />
+    <Content Include="Views\CheckingAccount\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\SavingsAccount\Details.cshtml" />
+    <Content Include="Views\SavingsAccount\Delete.cshtml" />
+    <Content Include="Views\Transaction\Details.cshtml" />
+    <Content Include="Views\Transaction\Edit.cshtml" />
+    <Content Include="Views\Transaction\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

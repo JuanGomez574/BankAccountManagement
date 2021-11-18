@@ -81,6 +81,28 @@ namespace BankAccountManagement.WebMVC.Controllers
             ModelState.AddModelError("", "The checking account could not be updated.");
             return View(model);
         }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCheckingAccountService();
+            var model = svc.GetCheckingAccountById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateCheckingAccountService();
+
+            service.DeleteCheckingAccount(id);
+
+            TempData["SaveResult"] = "The checking account was deleted";
+
+            return RedirectToAction("Index");
+        }
         private CheckingAccountService CreateCheckingAccountService()
         {
 

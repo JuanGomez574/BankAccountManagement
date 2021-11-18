@@ -1,0 +1,58 @@
+﻿@model BankAccountManagement.Models.TransactionDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TransactionDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountOfTransaction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountOfTransaction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SavingsAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SavingsAccountId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.TransactionId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

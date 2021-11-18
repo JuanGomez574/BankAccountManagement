@@ -1,0 +1,34 @@
+﻿@model BankAccountManagement.Models.CheckingAccountDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CheckingAccountDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckingBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckingBalance)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.CheckingAccountId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
