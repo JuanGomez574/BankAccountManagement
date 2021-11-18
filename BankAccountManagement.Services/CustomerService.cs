@@ -85,8 +85,6 @@ namespace BankAccountManagement.Services
             };
 
         }
-           
-
 
         public bool UpdateCustomer(CustomerEdit model)
         {

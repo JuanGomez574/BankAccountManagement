@@ -70,16 +70,14 @@ namespace BankAccountManagement.Services
             };
 
         }
-
-
-
-        public bool UpdateCheckingAccount(CheckingAccountEdit model, int id)
+        public bool UpdateCheckingAccount(CheckingAccountEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
-                    ctx.CheckingAccounts
-                    .Single(e => e.CheckingAccountId == id);
+                    ctx
+                        .CheckingAccounts
+                        .Single(e => e.CheckingAccountId == model.CheckingAccountId);
 
                 entity.CheckingBalance = model.CheckingBalance;
 
@@ -87,6 +85,20 @@ namespace BankAccountManagement.Services
             }
         }
 
+        public bool DeleteCheckingAccount(int checkingAccountId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .CheckingAccounts
+                        .Single(e => e.CheckingAccountId == checkingAccountId);
+
+                ctx.CheckingAccounts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }

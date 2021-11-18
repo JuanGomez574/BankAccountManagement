@@ -8,6 +8,7 @@ namespace BankAccountManagement.Models
 {
     public class CheckingAccountEdit
     {
+        public int CheckingAccountId { get; set; }
         public decimal CheckingBalance { get; set; }
     }
 }

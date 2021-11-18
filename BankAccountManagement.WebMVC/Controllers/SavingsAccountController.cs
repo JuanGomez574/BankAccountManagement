@@ -10,7 +10,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 {
     public class SavingsAccountController : Controller
     {
-        // GET: SavingsAccount
         public ActionResult Index()
         {
             SavingsAccountService service = CreateSavingsAccountService();
@@ -19,7 +18,6 @@ namespace BankAccountManagement.WebMVC.Controllers
             return View(model);
         }
 
-        //GET: SavingsAccountCreate
         public ActionResult Create()
         {
             var svc = CreateSavingsAccountService();
@@ -28,7 +26,6 @@ namespace BankAccountManagement.WebMVC.Controllers
             return View();
         }
 
-        //POST: SavingsAccount
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(SavingsAccountCreate model)
@@ -48,10 +45,6 @@ namespace BankAccountManagement.WebMVC.Controllers
             return View(model);
         }
 
-
-        //GET: SavingsAccountUpdate
-        [HttpGet]
-
         public ActionResult Edit(int id)
         {
             var service = CreateSavingsAccountService();
@@ -64,10 +57,6 @@ namespace BankAccountManagement.WebMVC.Controllers
                 };
             return View(model);
         }
-   
-
-
-        //Helper method(s)
         private SavingsAccountService CreateSavingsAccountService()
         {
 

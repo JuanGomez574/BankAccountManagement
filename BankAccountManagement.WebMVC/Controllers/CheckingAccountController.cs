@@ -10,7 +10,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 {
     public class CheckingAccountController : Controller
     {
-        // GET: CheckingAccount
         public ActionResult Index()
         {
             CheckingAccountService service = CreateCheckingAccountService();
@@ -18,14 +17,10 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return View(model);
         }
-
-        //GET: TransactionCreate
         public ActionResult Create()
         {
             return View();
         }
-
-        //POST: Transaction
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CheckingAccountCreate model)
@@ -44,11 +39,13 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return View(model);
         }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCheckingAccountService();
+            var model = svc.GetCheckingAccountById(id);
 
-
-        //GET: CheckingAccountUpdate
-        [HttpGet]
-
+            return View(model);
+        }
         public ActionResult Edit(int id)
         {
             var service = CreateCheckingAccountService();
@@ -61,10 +58,29 @@ namespace BankAccountManagement.WebMVC.Controllers
                 };
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CheckingAccountEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
+            if (model.CheckingAccountId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
 
+            var service = CreateCheckingAccountService();
 
-        //Helper method(s)
+            if (service.UpdateCheckingAccount(model))
+            {
+                TempData["SaveResult"] = "The checking account was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The checking account could not be updated.");
+            return View(model);
+        }
         private CheckingAccountService CreateCheckingAccountService()
         {
 

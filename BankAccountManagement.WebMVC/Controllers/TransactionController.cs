@@ -10,7 +10,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 {
     public class TransactionController : Controller
     {
-        // GET: Transaction
         public ActionResult Index()
         {
             TransactionService service = CreateTransactionService();
@@ -18,18 +17,10 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return View(model);
         }
-
-        //GET: TransactionCreate
         public ActionResult Create()
-        {
-            //var svc = CreateTransactionService();
-
-            //ViewBag.SavingsAccounts = svc.GetSavingsAccounts();
-            
+        {          
             return View();
         }
-
-        //POST: Transaction
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TransactionCreate model)
@@ -48,11 +39,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return View(model);
         }
-
-
-        //GET: TransactionUpdate
-        [HttpGet]
-
         public ActionResult Edit(int id)
         {
             var service = CreateTransactionService();
@@ -69,10 +55,6 @@ namespace BankAccountManagement.WebMVC.Controllers
                 };
             return View(model);
         }
-
-
-
-        //Helper method(s)
         private TransactionService CreateTransactionService()
         {
 

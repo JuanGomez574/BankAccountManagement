@@ -10,7 +10,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 {
     public class CustomerController : Controller
     {
-        // GET: Customer
         public ActionResult Index()
         {
             CustomerService service = CreateCustomerService();
@@ -19,13 +18,10 @@ namespace BankAccountManagement.WebMVC.Controllers
             return View(model);
         }
 
-        //GET: CustomerCreate
         public ActionResult Create()
         {
             return View();
         }
-
-        //POST: Customer
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerCreate model)
@@ -44,7 +40,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return View(model);
         }
-        //GET: CustomerDetails
         public ActionResult Details(int id)
         {
             var svc = CreateCustomerService();
@@ -52,7 +47,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return View(model);
         }
-        //GET: CustomerUpdate
         public ActionResult Edit(int id)
         {
             var service = CreateCustomerService();
@@ -71,7 +65,6 @@ namespace BankAccountManagement.WebMVC.Controllers
                 };
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, CustomerEdit model)
@@ -95,8 +88,6 @@ namespace BankAccountManagement.WebMVC.Controllers
             ModelState.AddModelError("", "The customer could not be updated.");
             return View(model);
         }
-
-        //GET: CustomerDelete
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -105,8 +96,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return View(model);
         }
-
-        //POST: CustomerDelete
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -120,8 +109,6 @@ namespace BankAccountManagement.WebMVC.Controllers
 
             return RedirectToAction("Index");
         }
-
-        //Helper method
         private CustomerService CreateCustomerService()
         {
 
