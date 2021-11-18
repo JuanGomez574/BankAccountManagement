@@ -24,14 +24,34 @@ namespace BankAccountManagement.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
+                SavingsAccount savingsAccount = ctx.SavingsAccounts.Find(model.SavingsAccountId);
+                if (savingsAccount != null)
+                {
+                    if (savingsAccount.SavingsBalance > model.AmountOfTransaction)
+                    {
+                        savingsAccount.SavingsBalance = savingsAccount.SavingsBalance - model.AmountOfTransaction;
+                    }
+
+                }
+
+                var checkingAccount = ctx.CheckingAccounts.Find(model.CheckingAccountId);
+                if (checkingAccount != null)
+                {
+                    if (model.TypeOfTransaction.Equals(TransactionType.Debit) && checkingAccount.CheckingBalance > model.AmountOfTransaction)
+                    {
+                        checkingAccount.CheckingBalance = checkingAccount.CheckingBalance - model.AmountOfTransaction;
+                    }
+
+                    if (model.TypeOfTransaction.Equals(TransactionType.Credit))
+                    {
+                        checkingAccount.CheckingBalance = checkingAccount.CheckingBalance + model.AmountOfTransaction;
+                    }
+                }
 
                 ctx.Transactions.Add(entity);
-                var checkingAccount = ctx.SavingsAccounts.Find(model.SavingsAccountId);
-                checkingAccount.SavingsBalance = checkingAccount.SavingsBalance - model.AmountOfTransaction;
-
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
-        }
+      }
 
         public IEnumerable<TransactionListItem> GetAllTransactions()
         {

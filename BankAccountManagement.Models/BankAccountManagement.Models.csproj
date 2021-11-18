@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckingAccountCreate.cs" />
+    <Compile Include="CheckingAccountDetail.cs" />
+    <Compile Include="CheckingAccountEdit.cs" />
+    <Compile Include="CheckingAccountListItem.cs" />
     <Compile Include="CustomerCreate.cs" />
     <Compile Include="CustomerDetail.cs" />
     <Compile Include="CustomerEdit.cs" />
