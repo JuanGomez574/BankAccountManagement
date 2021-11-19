@@ -56,6 +56,7 @@ namespace BankAccountManagement.WebMVC.Controllers
             var model =
                 new SavingsAccountEdit
                 {
+                    SavingsAccountId = detail.SavingsAccountId,
                     SavingsBalance = detail.SavingsBalance
 
                 };

@@ -53,6 +53,7 @@ namespace BankAccountManagement.WebMVC.Controllers
             var model =
                 new TransactionEdit
                 {
+                    TransactionId = detail.TransactionId,
                     AmountOfTransaction = detail.AmountOfTransaction,
                     TransactionDescription = detail.TransactionDescription,
                     TypeOfTransaction = detail.TypeOfTransaction,

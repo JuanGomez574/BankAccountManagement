@@ -53,6 +53,7 @@ namespace BankAccountManagement.WebMVC.Controllers
             var model =
                 new CheckingAccountEdit
                 {
+                    CheckingAccountId = detail.CheckingAccountId,
                     CheckingBalance = detail.CheckingBalance,
 
                 };

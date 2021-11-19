@@ -54,6 +54,7 @@ namespace BankAccountManagement.WebMVC.Controllers
             var model =
                 new CustomerEdit
                 {
+                    CustomerId = detail.CustomerId,
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,
                     Address = detail.Address,
