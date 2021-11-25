@@ -27,9 +27,15 @@ namespace BankAccountManagement.Services
                 SavingsAccount savingsAccount = ctx.SavingsAccounts.Find(model.SavingsAccountId);
                 if (savingsAccount != null)
                 {
-                    if (savingsAccount.SavingsBalance > model.AmountOfTransaction)
+                    
+                    if (model.TypeOfTransaction.Equals(TransactionType.Debit) && savingsAccount.SavingsBalance > model.AmountOfTransaction)
                     {
                         savingsAccount.SavingsBalance = savingsAccount.SavingsBalance - model.AmountOfTransaction;
+                    }
+
+                    if (model.TypeOfTransaction.Equals(TransactionType.Credit))
+                    {
+                        savingsAccount.SavingsBalance = savingsAccount.SavingsBalance + model.AmountOfTransaction;
                     }
 
                 }

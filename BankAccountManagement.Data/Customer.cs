@@ -15,8 +15,6 @@ namespace BankAccountManagement.Data
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
-        public string FullName {get{return FirstName + LastName;}}
         public string Email { get; set; }
         public int? PhoneNumber { get; set; }
         [Required]
@@ -24,5 +22,8 @@ namespace BankAccountManagement.Data
         [Required]
         public string Address { get; set; }
         public int? SocialSecurityNumber { get; set; }
+        public virtual List<CheckingAccount> CheckingAccounts { get; set; }
+        public virtual List<SavingsAccount> SavingsAccounts { get; set; }
+
     }
 }

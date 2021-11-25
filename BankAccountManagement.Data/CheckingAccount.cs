@@ -11,9 +11,7 @@ namespace BankAccountManagement.Data
     public class CheckingAccount
     {
         [Key]
-        public int CheckingAccountId { get; set; }
-        [ForeignKey(nameof(Customer))]
-        public int CustomerId { get; set; }
+        public int CheckingAccountId { get; set; }      
         public virtual Customer Customer { get; set; }
         [Required]
         [Display(Name = "Date Created")]
@@ -21,6 +19,8 @@ namespace BankAccountManagement.Data
         [Required]
         public decimal CheckingBalance { get; set; }
         public virtual List<Transaction> Transactions { get; set; }
+        [ForeignKey(nameof(Customer))]
+        public int CustomerId { get; set; }
     }
 
 }

@@ -73,7 +73,7 @@ namespace BankAccountManagement.Services
                             CustomerId = entity.CustomerId,
                             FirstName = entity.FirstName,
                             LastName = entity.LastName,
-                            FullName = entity.FullName,
+                           
                             Address = entity.Address,
                             DateOfBirth = entity.DateOfBirth,
                             Email = entity.Email,
