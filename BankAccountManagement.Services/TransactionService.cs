@@ -116,13 +116,54 @@ namespace BankAccountManagement.Services
                         .Transactions
                         .Single(e => e.TransactionId == model.TransactionId);
 
+                SavingsAccount savingsAccount = ctx.SavingsAccounts.Find(model.SavingsAccountId);
+                if (savingsAccount != null)
+                {
+
+                    if (model.TypeOfTransaction.Equals(TransactionType.Debit) && savingsAccount.SavingsBalance > model.AmountOfTransaction && entity.AmountOfTransaction > model.AmountOfTransaction)
+                    {
+                        savingsAccount.SavingsBalance = savingsAccount.SavingsBalance + (entity.AmountOfTransaction - model.AmountOfTransaction);
+                    }
+                    if (model.TypeOfTransaction.Equals(TransactionType.Debit) && savingsAccount.SavingsBalance > model.AmountOfTransaction && entity.AmountOfTransaction < model.AmountOfTransaction)
+                    {
+                        savingsAccount.SavingsBalance = savingsAccount.SavingsBalance + (entity.AmountOfTransaction - model.AmountOfTransaction);
+                    }
+
+                    if (model.TypeOfTransaction.Equals(TransactionType.Credit) && entity.AmountOfTransaction > model.AmountOfTransaction)
+                    {
+                        savingsAccount.SavingsBalance = savingsAccount.SavingsBalance - (entity.AmountOfTransaction - model.AmountOfTransaction);
+                    }
+                    if (model.TypeOfTransaction.Equals(TransactionType.Credit) && entity.AmountOfTransaction < model.AmountOfTransaction)
+                    {
+                        savingsAccount.SavingsBalance = savingsAccount.SavingsBalance + (model.AmountOfTransaction - entity.AmountOfTransaction);
+                    }
+
+                }
+
+                var checkingAccount = ctx.CheckingAccounts.Find(model.CheckingAccountId);
+                if (checkingAccount != null)
+                {
+                    if (model.TypeOfTransaction.Equals(TransactionType.Debit) && checkingAccount.CheckingBalance > model.AmountOfTransaction)
+                    {
+                        checkingAccount.CheckingBalance = checkingAccount.CheckingBalance + (entity.AmountOfTransaction - model.AmountOfTransaction);
+                    }
+
+                    if (model.TypeOfTransaction.Equals(TransactionType.Credit))
+                    {
+                        checkingAccount.CheckingBalance = checkingAccount.CheckingBalance + model.AmountOfTransaction;
+                    }
+                }
+
                 entity.AmountOfTransaction = model.AmountOfTransaction;
                 entity.TypeOfTransaction = model.TypeOfTransaction;
                 entity.TransactionDescription = model.TransactionDescription;
                 entity.SavingsAccountId = model.SavingsAccountId;
                 entity.TransactionId = model.TransactionId;
+                entity.CheckingAccountId = model.CheckingAccountId;
 
-                return ctx.SaveChanges() == 1;
+                
+
+                return ctx.SaveChanges() > 0;
             }
         }
         public bool DeleteTransaction(int transactionId)
