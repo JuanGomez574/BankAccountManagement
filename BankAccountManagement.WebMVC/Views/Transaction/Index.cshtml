@@ -4,36 +4,36 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center mt-4">Transactions</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TransactionId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AmountOfTransaction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TransactionDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CheckingAccountId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SavingsAccountId)
-        </th>
-        <th></th>
-    </tr>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.TransactionId)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.AmountOfTransaction)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.TransactionDescription)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CheckingAccountId)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.SavingsAccountId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <th scope="row">
             @Html.DisplayFor(modelItem => item.TransactionId)
-        </td>
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.AmountOfTransaction)
         </td>
@@ -55,3 +55,6 @@
 }
 
 </table>
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+</p>

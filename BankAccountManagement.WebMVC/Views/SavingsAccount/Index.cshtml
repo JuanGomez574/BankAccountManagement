@@ -4,31 +4,31 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center mt-4">Savings Accounts</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SavingsAccountId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SavingsBalance)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerName)
-        </th>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.SavingsAccountId)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.SavingsBalance)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
 
-        <th></th>
-    </tr>
+            <th></th>
+        </tr>
+    </thead>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <th scope="row">
             @Html.DisplayFor(modelItem => item.SavingsAccountId)
-        </td>
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.SavingsBalance)
         </td>
@@ -44,3 +44,6 @@
 }
 
 </table>
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+</p>

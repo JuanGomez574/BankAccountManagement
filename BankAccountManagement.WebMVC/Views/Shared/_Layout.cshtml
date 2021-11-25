@@ -3,38 +3,44 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Juan's Bank</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body class="text-white" >
+    <div class="navbar navbar-expand-lg bg-warning navbar-dark fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
+            @Html.ActionLink("Juan's Bank", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="true">
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Savings Accounts", "Index", "SavingsAccount")</li>
-                    <li>@Html.ActionLink("Checking Accounts", "Index", "CheckingAccount")</li>
-                    <li>@Html.ActionLink("Transactions", "Index", "Transaction")</li>
+                <ul class="navbar-nav list-inline mr-auto">
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, htmlAttributes: new { @class = "nav-link" })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+
+                        <li class="nav-item">@Html.ActionLink("Customers", "Index", "Customer", null, htmlAttributes: new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Savings Accounts", "Index", "SavingsAccount", null, htmlAttributes: new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Checking Accounts", "Index", "CheckingAccount", null, htmlAttributes: new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Transactions", "Index", "Transaction", null, htmlAttributes: new { @class = "nav-link" })</li>
+                    }
+                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, htmlAttributes: new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - Juan's Bank</p>
         </footer>
     </div>
 

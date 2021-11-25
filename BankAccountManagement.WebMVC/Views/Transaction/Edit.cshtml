@@ -4,87 +4,87 @@
     ViewBag.Title = "Edit";
 }
 
-<h2 class="text-center mt-4">Edit Transaction Amount</h2>
-<div class="d-flex justify-content-center text-center">
+<h2>Edit Transaction Amount</h2>
 
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
 
-        <div class="form-horizontal ">
-            
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.TransactionId)
-            
-            <div class="form-group">
-                
-                    <div class="col-md-2">
-                        @Html.LabelFor(model => model.TypeOfTransaction, htmlAttributes: new { @class = "col-form-label col-md-2" })
-                    </div>
-                    <div class="col-md-10">
-                        @Html.DisplayFor(model => model.TypeOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TypeOfTransaction, "", new { @class = "text-danger" })
-                    </div>
-              
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.AmountOfTransaction, htmlAttributes: new { @class = "col-form-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.AmountOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AmountOfTransaction, "", new { @class = "text-danger" })
-                </div>
-            </div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.TransactionDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.TransactionDescription, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TransactionDescription, "", new { @class = "text-danger" })
-                </div>
-            </div>
+    <div class="form-horizontal ">
+        <h4>Transaction Edit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.TransactionId)
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.TypeOfTransaction, htmlAttributes: new { @class = "control-label col-md-2" })
 
-            @if (Model.CheckingAccountId == null)
-            {
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CheckingAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-
-                        <p>Null</p>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CheckingAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.CheckingAccountId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CheckingAccountId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            }
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.SavingsAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.SavingsAccountId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.SavingsAccountId, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.TypeOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TypeOfTransaction, "", new { @class = "text-danger" })
             </div>
         </div>
-    }
 
-</div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AmountOfTransaction, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AmountOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmountOfTransaction, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TransactionDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TransactionDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TransactionDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @if (Model.CheckingAccountId == null)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.CheckingAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    <p>Null</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.CheckingAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CheckingAccountId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CheckingAccountId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SavingsAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.SavingsAccountId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SavingsAccountId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
 <div class="text-center">
     @Html.ActionLink("Back to List", "Index")
 </div>
