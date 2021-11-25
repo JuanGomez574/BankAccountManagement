@@ -12,21 +12,25 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+        <div class="form-horizontal ">
             
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.TransactionId)
             
             <div class="form-group">
-                @Html.LabelFor(model => model.TypeOfTransaction, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.TypeOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TypeOfTransaction, "", new { @class = "text-danger" })
-                </div>
+                
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.TypeOfTransaction, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.TypeOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TypeOfTransaction, "", new { @class = "text-danger" })
+                    </div>
+              
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.AmountOfTransaction, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.AmountOfTransaction, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.AmountOfTransaction, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.AmountOfTransaction, "", new { @class = "text-danger" })
