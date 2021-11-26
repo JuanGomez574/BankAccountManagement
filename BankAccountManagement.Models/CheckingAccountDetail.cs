@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccountManagement.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,9 @@ namespace BankAccountManagement.Models
     {
         public int CheckingAccountId { get; set; }
         public decimal CheckingBalance { get; set; }
+        public int CAccountNumber { get; set; }
+        public CheckingAccountType TypeOfCheckingAccount { get; set; }
+        public List<Transaction> Transactions { get; set; }
+
     }
 }

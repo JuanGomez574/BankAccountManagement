@@ -11,6 +11,12 @@ namespace BankAccountManagement.Services
 {
     public class TransactionService
     {
+        private readonly Guid _employeeId;
+
+        public TransactionService(Guid employeeId)
+        {
+            _employeeId = employeeId;
+        }
         public bool CreateTransaction(TransactionCreate model)
         {
             var entity =

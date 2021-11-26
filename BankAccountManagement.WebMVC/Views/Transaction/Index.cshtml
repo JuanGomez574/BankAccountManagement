@@ -6,7 +6,11 @@
 
 <h2 class="text-center mt-4">Transactions</h2>
 
-
+<div class="center-create">
+    <p>
+        @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+    </p>
+</div>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -15,6 +19,9 @@
             </th>
             <th scope="col">
                 @Html.DisplayNameFor(model => model.AmountOfTransaction)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.TypeOfTransaction)
             </th>
             <th scope="col">
                 @Html.DisplayNameFor(model => model.TransactionDescription)
@@ -29,32 +36,34 @@
         </tr>
     </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <th scope="row">
-            @Html.DisplayFor(modelItem => item.TransactionId)
-        </th>
-        <td>
-            @Html.DisplayFor(modelItem => item.AmountOfTransaction)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TransactionDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CheckingAccountId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SavingsAccountId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.TransactionId  }) |
-            @Html.ActionLink("Details", "Details", new { id = item.TransactionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.TransactionId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">
+                @Html.DisplayFor(modelItem => item.TransactionId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountOfTransaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfTransaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckingAccountId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SavingsAccountId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TransactionId }, htmlAttributes: new { @class = "btn btn-sm btn-warning" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TransactionId }, htmlAttributes: new { @class = "btn btn-sm btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TransactionId }, htmlAttributes: new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
-<p>
-    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
-</p>
+

@@ -57,13 +57,25 @@
     <Compile Include="CheckingAccount.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202111092332132_InitialCreate.cs" />
-    <Compile Include="Migrations\202111092332132_InitialCreate.Designer.cs">
-      <DependentUpon>202111092332132_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202111252046198_InitialCreate.cs" />
+    <Compile Include="Migrations\202111252046198_InitialCreate.Designer.cs">
+      <DependentUpon>202111252046198_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111131814547_PropertiesChanged.cs" />
-    <Compile Include="Migrations\202111131814547_PropertiesChanged.Designer.cs">
-      <DependentUpon>202111131814547_PropertiesChanged.cs</DependentUpon>
+    <Compile Include="Migrations\202111252113113_AccountNumberPropertyChanged.cs" />
+    <Compile Include="Migrations\202111252113113_AccountNumberPropertyChanged.Designer.cs">
+      <DependentUpon>202111252113113_AccountNumberPropertyChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111252128472_ChangedAccountNumberProperty.cs" />
+    <Compile Include="Migrations\202111252128472_ChangedAccountNumberProperty.Designer.cs">
+      <DependentUpon>202111252128472_ChangedAccountNumberProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260015359_EnumPropertyForAccounts.cs" />
+    <Compile Include="Migrations\202111260015359_EnumPropertyForAccounts.Designer.cs">
+      <DependentUpon>202111260015359_EnumPropertyForAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260215333_AddedBankEmployeeIdGuidProperty.cs" />
+    <Compile Include="Migrations\202111260215333_AddedBankEmployeeIdGuidProperty.Designer.cs">
+      <DependentUpon>202111260215333_AddedBankEmployeeIdGuidProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,11 +87,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111092332132_InitialCreate.resx">
-      <DependentUpon>202111092332132_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111252046198_InitialCreate.resx">
+      <DependentUpon>202111252046198_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131814547_PropertiesChanged.resx">
-      <DependentUpon>202111131814547_PropertiesChanged.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111252113113_AccountNumberPropertyChanged.resx">
+      <DependentUpon>202111252113113_AccountNumberPropertyChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111252128472_ChangedAccountNumberProperty.resx">
+      <DependentUpon>202111252128472_ChangedAccountNumberProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260015359_EnumPropertyForAccounts.resx">
+      <DependentUpon>202111260015359_EnumPropertyForAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260215333_AddedBankEmployeeIdGuidProperty.resx">
+      <DependentUpon>202111260215333_AddedBankEmployeeIdGuidProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

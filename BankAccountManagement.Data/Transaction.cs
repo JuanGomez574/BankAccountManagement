@@ -18,6 +18,8 @@ namespace BankAccountManagement.Data
         [Key]
         public int TransactionId { get; set; }
         [Required]
+        public Guid BankEmployeeId { get; set; }
+        [Required]
         public decimal AmountOfTransaction { get; set; }
         [Required]
         [Display(Name = "Date Created")]

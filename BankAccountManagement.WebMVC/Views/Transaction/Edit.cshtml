@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit Transaction Amount</h2>
+<h2 class="mt-4">Edit Transaction Amount</h2>
 
 
 
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal ">
-        <h4>Transaction Edit</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.TransactionId)
@@ -78,14 +78,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default text-light" />
             </div>
         </div>
     </div>
 }
 
 
-<div class="text-center">
+<div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 

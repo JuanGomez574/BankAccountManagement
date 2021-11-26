@@ -7,13 +7,13 @@ namespace BankAccountManagement.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class PropertiesChanged : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PropertiesChanged));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111131814547_PropertiesChanged"; }
+            get { return "202111252046198_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

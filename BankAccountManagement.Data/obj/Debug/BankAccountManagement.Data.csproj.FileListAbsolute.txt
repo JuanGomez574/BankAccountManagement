@@ -16,4 +16,7 @@ C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data
 C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.pdb
 C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.Migrations.InitialCreate.resources
 C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.csproj.GenerateResource.cache
-C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.Migrations.PropertiesChanged.resources
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.Migrations.AccountNumberPropertyChanged.resources
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.Migrations.ChangedAccountNumberProperty.resources
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.Migrations.EnumPropertyForAccounts.resources
+C:\ElevenFiftyProjects\RedBadge\BankAccountManagement\BankAccountManagement.Data\obj\Debug\BankAccountManagement.Data.Migrations.AddedBankEmployeeIdGuidProperty.resources

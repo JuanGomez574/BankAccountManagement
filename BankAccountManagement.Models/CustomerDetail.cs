@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccountManagement.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,9 +15,10 @@ namespace BankAccountManagement.Models
         public string LastName { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
-        public int? PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
-        public int? SocialSecurityNumber { get; set; }
+        public virtual List<CheckingAccount> CheckingAccounts { get; set; }
+        public virtual List<SavingsAccount> SavingsAccounts { get; set; }
     }
 }

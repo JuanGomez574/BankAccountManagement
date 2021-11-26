@@ -10,13 +10,23 @@ namespace BankAccountManagement.Services
 {
     public class CheckingAccountService
     {
+        private readonly Guid _employeeId;
+
+        public CheckingAccountService(Guid employeeId)
+        {
+            _employeeId = employeeId;
+        }
         public bool CreateCheckingAccount(CheckingAccountCreate model)
         {
+            var random = new Random();
+            model.CAccountNumber = random.Next(100000000, 999999999);
             var entity =
                 new CheckingAccount()
                 {
                     CheckingBalance = model.CheckingBalance,
-                    CustomerId = model.CustomerId
+                    CustomerId = model.CustomerId,
+                    CAccountNumber = model.CAccountNumber,
+                    TypeOfCheckingAccount = model.TypeOfCheckingAccount
                     
                 };
 
@@ -41,7 +51,10 @@ namespace BankAccountManagement.Services
                         {
                             CheckingAccountId = e.CheckingAccountId,
                             CheckingAccountBalance = e.CheckingBalance,
-                            CustomerName = e.Customer.FirstName
+                            CustomerName = e.Customer.FirstName,
+                            CAccountNumber = e.CAccountNumber,
+                            TypeOfCheckingAccount = e.TypeOfCheckingAccount
+                            
 
                         });
                 return query.ToArray();
@@ -62,7 +75,10 @@ namespace BankAccountManagement.Services
                     new CheckingAccountDetail
                     {
                         CheckingAccountId = entity.CheckingAccountId,
-                        CheckingBalance = entity.CheckingBalance
+                        CheckingBalance = entity.CheckingBalance,
+                        CAccountNumber = entity.CAccountNumber,
+                        TypeOfCheckingAccount = entity.TypeOfCheckingAccount,
+                        Transactions = entity.Transactions
                         
                     };
 
@@ -80,6 +96,7 @@ namespace BankAccountManagement.Services
                         .Single(e => e.CheckingAccountId == model.CheckingAccountId);
 
                 entity.CheckingBalance = model.CheckingBalance;
+                entity.TypeOfCheckingAccount = model.TypeOfCheckingAccount;
 
                 return ctx.SaveChanges() == 1;
             }

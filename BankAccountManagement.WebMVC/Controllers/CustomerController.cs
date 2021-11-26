@@ -1,5 +1,6 @@
 ﻿using BankAccountManagement.Models;
 using BankAccountManagement.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,8 +61,7 @@ namespace BankAccountManagement.WebMVC.Controllers
                     Address = detail.Address,
                     DateOfBirth = detail.DateOfBirth,
                     Email = detail.Email,
-                    PhoneNumber = detail.PhoneNumber,
-                    SocialSecurityNumber = detail.SocialSecurityNumber
+                    PhoneNumber = detail.PhoneNumber
 
                 };
             return View(model);
@@ -112,8 +112,8 @@ namespace BankAccountManagement.WebMVC.Controllers
         }
         private CustomerService CreateCustomerService()
         {
-
-            var service = new CustomerService();
+            var employeeId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CustomerService(employeeId);
             return service;
         }
     }

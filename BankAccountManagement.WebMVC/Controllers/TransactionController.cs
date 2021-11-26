@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BankAccountManagement.Models;
 using BankAccountManagement.Services;
+using Microsoft.AspNet.Identity;
 
 namespace BankAccountManagement.WebMVC.Controllers
 {
@@ -109,8 +110,8 @@ namespace BankAccountManagement.WebMVC.Controllers
         }
         private TransactionService CreateTransactionService()
         {
-
-            var service = new TransactionService();
+            var employeeId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TransactionService(employeeId);
             return service;
         }
     }

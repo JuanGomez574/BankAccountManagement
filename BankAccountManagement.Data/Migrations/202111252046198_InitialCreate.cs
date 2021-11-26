@@ -12,9 +12,10 @@ namespace BankAccountManagement.Data.Migrations
                 c => new
                     {
                         CheckingAccountId = c.Int(nullable: false, identity: true),
-                        CustomerId = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         CheckingBalance = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        AccountNumber = c.Int(nullable: false),
+                        CustomerId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CheckingAccountId)
                 .ForeignKey("dbo.Customer", t => t.CustomerId, cascadeDelete: true)
@@ -27,14 +28,26 @@ namespace BankAccountManagement.Data.Migrations
                         CustomerId = c.Int(nullable: false, identity: true),
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
-                        FullName = c.String(nullable: false),
                         Email = c.String(),
-                        PhoneNumber = c.Int(),
+                        PhoneNumber = c.String(),
                         DateOfBirth = c.DateTime(nullable: false),
                         Address = c.String(nullable: false),
-                        SocialSecurityNumber = c.Int(),
                     })
                 .PrimaryKey(t => t.CustomerId);
+            
+            CreateTable(
+                "dbo.SavingsAccount",
+                c => new
+                    {
+                        SavingsAccountId = c.Int(nullable: false, identity: true),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        SavingsBalance = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        AccountNumber = c.Int(nullable: false),
+                        CustomerId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.SavingsAccountId)
+                .ForeignKey("dbo.Customer", t => t.CustomerId, cascadeDelete: true)
+                .Index(t => t.CustomerId);
             
             CreateTable(
                 "dbo.Transaction",
@@ -53,19 +66,6 @@ namespace BankAccountManagement.Data.Migrations
                 .ForeignKey("dbo.SavingsAccount", t => t.SavingsAccountId)
                 .Index(t => t.CheckingAccountId)
                 .Index(t => t.SavingsAccountId);
-            
-            CreateTable(
-                "dbo.SavingsAccount",
-                c => new
-                    {
-                        SavingsAccountId = c.Int(nullable: false, identity: true),
-                        CustomerId = c.Int(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        SavingsBalance = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    })
-                .PrimaryKey(t => t.SavingsAccountId)
-                .ForeignKey("dbo.Customer", t => t.CustomerId, cascadeDelete: true)
-                .Index(t => t.CustomerId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -145,25 +145,25 @@ namespace BankAccountManagement.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Transaction", "SavingsAccountId", "dbo.SavingsAccount");
-            DropForeignKey("dbo.SavingsAccount", "CustomerId", "dbo.Customer");
-            DropForeignKey("dbo.Transaction", "CheckingAccountId", "dbo.CheckingAccount");
             DropForeignKey("dbo.CheckingAccount", "CustomerId", "dbo.Customer");
+            DropForeignKey("dbo.Transaction", "SavingsAccountId", "dbo.SavingsAccount");
+            DropForeignKey("dbo.Transaction", "CheckingAccountId", "dbo.CheckingAccount");
+            DropForeignKey("dbo.SavingsAccount", "CustomerId", "dbo.Customer");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.SavingsAccount", new[] { "CustomerId" });
             DropIndex("dbo.Transaction", new[] { "SavingsAccountId" });
             DropIndex("dbo.Transaction", new[] { "CheckingAccountId" });
+            DropIndex("dbo.SavingsAccount", new[] { "CustomerId" });
             DropIndex("dbo.CheckingAccount", new[] { "CustomerId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
-            DropTable("dbo.SavingsAccount");
             DropTable("dbo.Transaction");
+            DropTable("dbo.SavingsAccount");
             DropTable("dbo.Customer");
             DropTable("dbo.CheckingAccount");
         }

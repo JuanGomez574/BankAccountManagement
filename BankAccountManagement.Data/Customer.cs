@@ -12,6 +12,8 @@ namespace BankAccountManagement.Data
         [Key]
         public int CustomerId { get; set; }
         [Required]
+        public Guid BankEmployeeId { get; set; }
+        [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
@@ -21,7 +23,7 @@ namespace BankAccountManagement.Data
         public DateTime DateOfBirth { get; set; }
         [Required]
         public string Address { get; set; }
-        public int? SocialSecurityNumber { get; set; }
+        
         public virtual List<CheckingAccount> CheckingAccounts { get; set; }
         public virtual List<SavingsAccount> SavingsAccounts { get; set; }
 

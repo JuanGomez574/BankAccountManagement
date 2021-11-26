@@ -10,6 +10,12 @@ namespace BankAccountManagement.Services
 {
     public class CustomerService
     {
+        private readonly Guid _employeeId;
+
+        public CustomerService(Guid employeeId)
+        {
+            _employeeId = employeeId;
+        }
         public bool CreateCustomer(CustomerCreate model)
         {
             var entity =
@@ -21,7 +27,7 @@ namespace BankAccountManagement.Services
                     DateOfBirth = model.DateOfBirth,
                     Email = model.Email,
                     PhoneNumber = model.PhoneNumber,
-                    SocialSecurityNumber = model.SocialSecurityNumber
+                    
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -51,7 +57,7 @@ namespace BankAccountManagement.Services
                             DateOfBirth = e.DateOfBirth,
                             Email = e.Email,
                             PhoneNumber = e.PhoneNumber,
-                            SocialSecurityNumber = e.SocialSecurityNumber
+                            
                         });
                 return query.ToArray();
             }
@@ -78,7 +84,9 @@ namespace BankAccountManagement.Services
                             DateOfBirth = entity.DateOfBirth,
                             Email = entity.Email,
                             PhoneNumber = entity.PhoneNumber,
-                            SocialSecurityNumber = entity.SocialSecurityNumber
+                            CheckingAccounts = entity.CheckingAccounts,
+                            SavingsAccounts = entity.SavingsAccounts
+                            
                         };
                 
 
@@ -101,7 +109,7 @@ namespace BankAccountManagement.Services
                 entity.DateOfBirth = model.DateOfBirth;
                 entity.Email = model.Email;
                 entity.PhoneNumber = model.PhoneNumber;
-                entity.SocialSecurityNumber = model.SocialSecurityNumber;
+                
 
                 return ctx.SaveChanges() == 1;
             }

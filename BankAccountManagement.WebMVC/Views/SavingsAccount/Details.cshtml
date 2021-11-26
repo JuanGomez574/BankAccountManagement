@@ -1,34 +1,68 @@
 ﻿@model BankAccountManagement.Models.SavingsAccountDetail
 
+
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center mt-4">Savings Account Id#@Html.DisplayFor(model=>model.SavingsAccountId) Transactions</h2>
 
-<div>
-    <h4>SavingsAccountDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SavingsAccountId)
-        </dt>
+<table class="table">
 
-        <dd>
-            @Html.DisplayFor(model => model.SavingsAccountId)
-        </dd>
+    <thead>
+        <tr>
+            <th>
+                TransactionId
+            </th>
+            <th>
+                <p>
+                    Created on
+                </p>
+            </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SavingsBalance)
-        </dt>
+            <th>
+                <p>
+                    Amount
+                </p>
+            </th>
+            <th>
+                <p>
+                    Type
+                </p>
+            </th>
+            
+        </tr>
+    </thead>
 
-        <dd>
-            @Html.DisplayFor(model => model.SavingsBalance)
-        </dd>
 
-    </dl>
-</div>
+    @foreach (var item in Model.Transactions)
+    {
+        <tr>
+            <th scope="row">
+                @Html.DisplayFor(modelItem => item.TransactionId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountOfTransaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfTransaction)
+            </td>
+            
+            <td>
+
+                
+                @Html.ActionLink("Details", "Details", "Transaction", new { id = item.TransactionId }, htmlAttributes: new { @class = "btn btn-info btn-sm " })
+
+            </td>
+        </tr>
+    }
+
+
+</table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.SavingsAccountId  }) |
-    @Html.ActionLink("Back to List", "Index")
+   
+    @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "text-light" })
 </p>

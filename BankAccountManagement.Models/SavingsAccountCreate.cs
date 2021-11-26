@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccountManagement.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace BankAccountManagement.Models
         public decimal SavingsBalance { get; set; }
         [Display(Name = "Name")]
         public int CustomerId { get; set; }
+        public int SAccountNumber { get; set; }
+        public SavingsAccountType TypeOfSavingsAccount { get; set; }
     }
 }

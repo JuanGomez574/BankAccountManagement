@@ -11,13 +11,25 @@ namespace BankAccountManagement.Services
 {
     public class SavingsAccountService
     {
+        private readonly Guid _employeeId;
+
+        public SavingsAccountService(Guid employeeId)
+        {
+            _employeeId = employeeId;
+        }
         public bool CreateSavingsAccount(SavingsAccountCreate model)
         {
+            var random = new Random();
+            model.SAccountNumber = random.Next(100000000, 999999999);
             var entity =
                 new SavingsAccount()
                 {
                     SavingsBalance = model.SavingsBalance,
-                    CustomerId = model.CustomerId
+                    CustomerId = model.CustomerId,
+                    SAccountNumber = model.SAccountNumber,
+                    TypeOfSavingsAccount =model.TypeOfSavingsAccount
+                    
+                    
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -41,7 +53,9 @@ namespace BankAccountManagement.Services
                         {
                             SavingsAccountId = e.SavingsAccountId,
                             SavingsBalance = e.SavingsBalance,
-                            CustomerName = e.Customer.FirstName
+                            CustomerName = e.Customer.FirstName,
+                            SAccountNumber = e.SAccountNumber,
+                            TypeOfSavingsAccount = e.TypeOfSavingsAccount
                         });
                 return query.ToArray();
             }
@@ -59,7 +73,10 @@ namespace BankAccountManagement.Services
                     new SavingsAccountDetail
                     {
                         SavingsAccountId = entity.SavingsAccountId,
-                        SavingsBalance = entity.SavingsBalance
+                        SavingsBalance = entity.SavingsBalance,
+                        SAccountNumber = entity.SAccountNumber,
+                        Transactions = entity.Transactions,
+                        TypeOfSavingsAccount =entity.TypeOfSavingsAccount
                     };
             };
 
@@ -73,7 +90,8 @@ namespace BankAccountManagement.Services
                         .SavingsAccounts
                         .Single(e => e.SavingsAccountId == model.SavingsAccountId);
 
-                entity.SavingsBalance = model.SavingsBalance;;
+                entity.SavingsBalance = model.SavingsBalance;
+                entity.TypeOfSavingsAccount = model.TypeOfSavingsAccount;
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -93,10 +111,10 @@ namespace BankAccountManagement.Services
         }
         public List<SelectListItem> GetCustomers()
         {
-            List<SelectListItem> customers = new List<SelectListItem>();
+            
             using (var ctx = new ApplicationDbContext())
             {
-                customers = ctx.Customers.Select(
+                var customers = ctx.Customers.Select(
                     c =>
                     new SelectListItem
                     {

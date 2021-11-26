@@ -38,3 +38,10 @@ textarea {
 .table{
     color: white;
 }
+.center-create{
+    text-align: center;
+
+}
+.center-create a {
+    display: inline-block;
+}

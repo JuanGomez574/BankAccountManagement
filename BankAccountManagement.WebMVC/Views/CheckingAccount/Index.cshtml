@@ -6,7 +6,11 @@
 
 <h2 class="text-center mt-4">Checking Accounts</h2>
 
-
+<div class="center-create">
+    <p>
+        @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+    </p>
+</div>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -17,32 +21,37 @@
                 @Html.DisplayNameFor(model => model.CheckingAccountBalance)
             </th>
             <th scope="col">
+                @Html.DisplayNameFor(model => model.TypeOfCheckingAccount)
+            </th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.CustomerName)
             </th>
             <th></th>
         </tr>
     </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <th class="row">
-            @Html.DisplayFor(modelItem => item.CheckingAccountId)
-        </th>
-        <td>
-            @Html.DisplayFor(modelItem => item.CheckingAccountBalance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.CheckingAccountId}) |
-            @Html.ActionLink("Details", "Details", new { id = item.CheckingAccountId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CheckingAccountId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th class="row">
+                @Html.DisplayFor(modelItem => item.CheckingAccountId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckingAccountBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfCheckingAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CheckingAccountId }, htmlAttributes: new { @class = "btn btn-sm btn-warning" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CheckingAccountId }, htmlAttributes: new { @class = "btn btn-sm btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CheckingAccountId }, htmlAttributes: new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
-<p>
-    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
-</p>
+

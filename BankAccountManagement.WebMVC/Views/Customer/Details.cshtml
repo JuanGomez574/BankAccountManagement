@@ -3,88 +3,115 @@
 @{
     ViewBag.Title = "Details";
 }
+<h2 class="text-center mt-4">@Html.DisplayFor(model => model.FirstName)s' Accounts </h2>
 
-<h2>Details</h2>
+<table class="table">
 
-<div>
-    <h4>CustomerDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </dt>
+    <thead>
+        <tr>
+            <th>
+                CheckingAccountId
+            </th>
+            <th>
+                <p>
+                    Account #
+                </p>
+            </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.CustomerId)
-        </dd>
+            <th>
+                <p>
+                    Balance
+                </p>
+            </th>
+            <th>
+                <p>
+                    Type
+                </p>
+            </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+        </tr>
+    </thead>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+    @foreach (var item in Model.CheckingAccounts)
+    {
+        <tr>
+            <th scope="row">
+                @Html.DisplayFor(modelItem => item.CheckingAccountId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.CAccountNumber))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckingBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfCheckingAccount)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+            <td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
+                @Html.ActionLink("Details", "Details", "Transaction", new { id = item.CustomerId }, htmlAttributes: new { @class = "btn btn-info btn-sm " })
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            </td>
+        </tr>
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
+</table>
+<table class="table">
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
+    <thead>
+        <tr>
+            <th>
+                SavingsAccountId
+            </th>
+            <th>
+                <p>
+                    Account #
+                </p>
+            </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
+            <th>
+                <p>
+                    Balance
+                </p>
+            </th>
+            <th>
+                <p>
+                    Type
+                </p>
+            </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
+        </tr>
+    </thead>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+    @foreach (var item in Model.SavingsAccounts)
+    {
+        <tr>
+            <th scope="row">
+                @Html.DisplayFor(modelItem => item.SavingsAccountId)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAccountNumber))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SavingsBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfSavingsAccount)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SocialSecurityNumber)
-        </dt>
+            <td>
 
-        <dd>
-            @Html.DisplayFor(model => model.SocialSecurityNumber)
-        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.CustomerId  }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                @Html.ActionLink("Details", "Details", "Transaction", new { id = item.CustomerId }, htmlAttributes: new { @class = "btn btn-info btn-sm " })
+
+            </td>
+        </tr>
+    }
+
+
+</table>

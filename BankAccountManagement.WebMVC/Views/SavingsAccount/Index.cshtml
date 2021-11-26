@@ -5,7 +5,11 @@
 }
 
 <h2 class="text-center mt-4">Savings Accounts</h2>
-
+<div class="center-create">
+    <p>
+        @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
+    </p>
+</div>
 
 <table class="table">
     <thead class="thead-dark">
@@ -36,14 +40,12 @@
             @Html.DisplayFor(modelItem => item.CustomerName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.SavingsAccountId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.SavingsAccountId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.SavingsAccountId })
+            @Html.ActionLink("Edit", "Edit", new {  id=item.SavingsAccountId }, htmlAttributes: new { @class = "btn btn-sm btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SavingsAccountId }, htmlAttributes: new { @class = "btn btn-sm btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SavingsAccountId }, htmlAttributes: new { @class = "btn btn-sm btn-danger" })
         </td>
     </tr>
 }
 
 </table>
-<p>
-    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-outline-light" })
-</p>
+
